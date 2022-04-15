@@ -1,0 +1,6 @@
+{
+  "mainStore": "https://demo.craftingcart.com/cak/graphql",
+  "reSeller1": "https://demo.craftingcart.com/store1/graphql",
+  "reSeller2": "https://demo.craftingcart.com/store2/graphql",
+  "strapi": "https://vast-depths-35978.herokuapp.com"
+}

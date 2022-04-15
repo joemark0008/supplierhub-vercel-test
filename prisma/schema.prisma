@@ -1,0 +1,48 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["dataproxy"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model User {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name      String?
+  f_name    String?
+  m_name    String?
+  l_name    String?
+  email     String
+  contact   String
+  accountId String?
+  account   Account? @relation(fields: [accountId], references: [id])
+}
+
+model Account {
+  id                   String   @id @default(uuid())
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+  stripeCustomerId     String
+  stripeSubscriptionId String
+  referrer             String?
+  isActive             Boolean
+  invites              Invite[]
+  users                User[]
+}
+
+model Invite {
+  id        String   @id @default(uuid())
+  dateSent  DateTime @default(now())
+  email     String
+  accountId String?
+  isValid   Boolean  @default(true)
+  account   Account? @relation(fields: [accountId], references: [id])
+}
