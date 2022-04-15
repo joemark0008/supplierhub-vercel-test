@@ -44,7 +44,7 @@ export default function MyApp(props) {
   // });
 
   const client = new ApolloClient({
-    uri: 'http://localhost:3000/api/graphql',
+    uri: 'https://supplierhub-vercel-test-nyi5ek82g-joemark0008-gmailcom.vercel.app/api/graphql',
     cache: new InMemoryCache(),
   });
 
