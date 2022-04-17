@@ -4,9 +4,9 @@ export const typeDefs = gql`
   type User {
     id: String
     name: String
-    f_name: String
-    m_name: String
-    l_name: String
+    firstname: String
+    midname: String
+    lastname: String
     email: String
     contact: String
     accountId: String
