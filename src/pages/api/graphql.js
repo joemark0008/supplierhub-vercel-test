@@ -12,6 +12,8 @@ const apolloServer = new ApolloServer({
   context: createContext,
   resolvers,
   typeDefs,
+  introspection:true,
+  playground:true,
 });
 
 const startServer = apolloServer.start();
